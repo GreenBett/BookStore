@@ -8,14 +8,20 @@
 <div class="list-group">
     <div class="row">
         <div class="col-md-12 detail-div">
-            <p>
-                <em> Id: </em>
-                @Model.PublisherId
-            </p>
-            <p>
-                <em> Name: </em>
-                @Model.Name
-            </p>
+            <dl>
+            <dt>
+                @Html.DisplayNameFor(modelItem=> Model.PublisherId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem=> Model.PublisherId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(modelItem=> Model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem=> Model.Name)
+            </dd>
+            </dl>
         </div>
     </div>
 </div>

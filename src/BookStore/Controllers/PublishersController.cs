@@ -69,6 +69,29 @@ namespace BookStore.Controllers
             }
             return RedirectToAction("Index");
         }
+        [ActionName("Edit")]
+        public IActionResult Edit (int? id)
+        {
+            Publisher publisher = _context.Publishers.First(o => o.PublisherId == id);
+            if (publisher != null)
+            {
+                return View(publisher);
+            }
+            return RedirectToAction("Index");
+        }
 
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Publisher publisher)
+        {
+            if (ModelState.IsValid)
+            {
+                Publisher p = _context.Publishers.First(o => o.PublisherId == publisher.PublisherId);
+                p.Name = publisher.Name;
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(publisher);
+        }
     }
 }
