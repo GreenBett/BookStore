@@ -1,0 +1,21 @@
+﻿@model BookStore.Models.Publisher
+
+@{
+    ViewBag.Title = "Publisher details";
+}
+<a asp-action="Index"> Back to List </a>
+<h3> @Html.DisplayFor(modelItem => Model.Name) </h3>
+<div class="list-group">
+    <div class="row">
+        <div class="col-md-12 detail-div">
+            <p>
+                <em> Id: </em>
+                @Model.PublisherId
+            </p>
+            <p>
+                <em> Name: </em>
+                @Model.Name
+            </p>
+        </div>
+    </div>
+</div>

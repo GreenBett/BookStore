@@ -1,0 +1,27 @@
+﻿@model IEnumerable<BookStore.Models.Publisher>
+@{
+    ViewBag.Title = "Publishers";
+}
+
+<h2> Publishers </h2>
+<a asp-action="Create"> Create new </a>
+
+<table class="table">
+    <tr>
+        <th> Id </th>
+        <th> Name</th>
+        <th> Action </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelItem=> item.PublisherId) </td>
+            <td> @Html.DisplayFor(modelItem=> item.Name) </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.PublisherId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.PublisherId })
+            </td>
+
+        </tr>
+    }
+</table>

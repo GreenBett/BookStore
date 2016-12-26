@@ -10,6 +10,15 @@
     padding-right: 15px;
 }
 
+
+.detail-field {
+    font-weight: bold;
+}
+
+.detail-div {
+    margin-left: 100px;
+}
+
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,

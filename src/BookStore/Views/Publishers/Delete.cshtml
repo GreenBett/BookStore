@@ -1,0 +1,13 @@
+﻿@model BookStore.Models.Publisher
+@{ 
+    ViewBag.Title = "Delete confirmation ";
+}
+
+<h3> Are you sure that you want to delete this Publisher? </h3>
+
+<form asp-action="Delete" method="post">
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" />
+        <a asp-action="Indexx"> Back to List </a>
+    </div>
+</form>
