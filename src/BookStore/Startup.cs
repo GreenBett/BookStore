@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using BookStore.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStore
 {
@@ -28,6 +30,8 @@ namespace BookStore
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=BookStore;Trusted_Connection=True;";
+            services.AddDbContext<StoreContext>(options => options.UseSqlServer(connection));
             services.AddMvc();
         }
 
