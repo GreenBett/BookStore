@@ -1,0 +1,26 @@
+﻿@model BookStore.ViewModels.AuthorViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+<a asp-action="Index"> Back to List </a>
+<h3> @Html.DisplayFor(modelItem => Model.Name) </h3>
+<div class="list-group">
+    <div class="row">
+        <div class="col-md-12 detail-div">
+            <dl>
+                <dt> AuthorId </dt>
+                <dd> @Model.AuthorId </dd>
+                <dt> AuthorName </dt>
+                <dd> @Model.Name </dd>
+                <dt> DateOfBIrth</dt>
+                <dd> @Model.DateOfBirth </dd>
+                <dt> Books </dt>
+                @foreach(var item in Model.Books)
+                {
+                    
+                }
+            </dl>
+        </div>
+    </div>
+</div>
