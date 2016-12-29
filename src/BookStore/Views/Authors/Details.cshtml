@@ -18,7 +18,7 @@
                 <dt> Books </dt>
                 @foreach(var item in Model.Books)
                 {
-                    
+                    <dd> @Html.DisplayFor(modelItem=> item.Title) </dd>
                 }
             </dl>
         </div>

@@ -52,14 +52,7 @@ namespace BookStore.Controllers
                 avm.AuthorId = author.AuthorId;
                 avm.Name = author.Name;
                 avm.DateOfBirth = author.DateOfBirth.ToString();
-                if (author.Books == null)
-                {
-                    avm.Books = new List<Book>();
-                }
-                else
-                {
-                    avm.Books = author.Books;
-                }
+                avm.Books = _context.Books.Where(o=> o.AuthorId == id);
                 return View(avm);
             }
             return RedirectToAction("Index");
