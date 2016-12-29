@@ -21,9 +21,9 @@ namespace BookStore.Models
         public decimal UnitPrice { get; set; }
 
         public int AuthorId { get; set; }
-        public Author Author { get; set; }
+        public virtual Author Author { get; set; }
 
         public int PublisherId { get; set;  }
-        public Publisher Publisher { get; set; }
+        public virtual Publisher Publisher { get; set; }
     }
 }
