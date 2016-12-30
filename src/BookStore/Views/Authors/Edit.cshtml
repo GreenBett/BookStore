@@ -8,10 +8,15 @@
     <div class="form-horizontal">
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <label asp-for="FirstName" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                @Html.TextBox("Name", null, new { @class = "form-control" })
-                <span asp-validation-for="Name" class="text-danger"></span>
+                @Html.TextBox("FirstName", null, new { @class = "form-control" })
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <label asp-for="LastName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @Html.TextBox("LastName", null, new { @class = "form-control" })
+                <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <label asp-for="DateOfBirth" class="col-md-2 control-label"></label>
             <div class="col-md-10">

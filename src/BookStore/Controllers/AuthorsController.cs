@@ -21,7 +21,17 @@ namespace BookStore.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View(_context.Authors.ToList());
+            List<AuthorViewModel> avm = new List<AuthorViewModel>();
+            foreach(Author author in _context.Authors.ToList())
+            {
+                avm.Add(new AuthorViewModel()
+                {
+                    AuthorId = author.AuthorId,
+                    Name = String.Format("{0}, {1}", author.LastName, author.FirstName),
+                    DateOfBirth = author.DateOfBirth.ToString()
+                });
+            }
+            return View(avm);
         }
 
         public IActionResult Create()
@@ -50,7 +60,7 @@ namespace BookStore.Controllers
             {
                 AuthorViewModel avm = new AuthorViewModel();
                 avm.AuthorId = author.AuthorId;
-                avm.Name = author.Name;
+                avm.Name = String.Format("{0}, {1}", author.LastName, author.FirstName);
                 avm.DateOfBirth = author.DateOfBirth.ToString();
                 avm.Books = _context.Books.Where(o=> o.AuthorId == id);
                 return View(avm);

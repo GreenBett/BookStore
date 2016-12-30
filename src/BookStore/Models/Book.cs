@@ -10,14 +10,14 @@ namespace BookStore.Models
     public class Book
     {
         public int BookId { get; set; }
-        [StringLength(50, ErrorMessage = "Name cannot contain more than 50 characters.")]
+        [Required, StringLength(50, ErrorMessage = "Name cannot contain more than 50 characters.")]
         public string Title { get; set; }
+        [Required]
         public int ISBN { get; set; }
-        [Range(1, 2100)]
+        [Required, Range(1, 2100)]
         public int PublishYear { get; set; }
         public int Quantity { get; set; }
-        [DisplayName("Price")]
-        [Required]
+        [DisplayName("Price"), Required]
         public decimal UnitPrice { get; set; }
 
         public int AuthorId { get; set; }

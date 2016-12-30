@@ -41,19 +41,35 @@ namespace BookStore.Controllers
 
         public IActionResult Details(int? id)
         {
-            return View();
+            var book = _context.Books.Find(id);
+            if (book != null)
+            {
+                return View(book);
+            }
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Edit(int? book)
+        public IActionResult Edit(int? id)
         {
-            return View();
+            var book = _context.Books.Find(id);
+            if (book != null)
+            {
+                return View(book);
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(Book book)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _context.Books.Update(book);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(book);
         }
 
         public IActionResult Delete(int? id)
