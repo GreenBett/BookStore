@@ -10,6 +10,9 @@
     padding-right: 15px;
 }
 
+.MakeWide {
+        width: 200px;
+    }
 
 .detail-field {
     font-weight: bold;

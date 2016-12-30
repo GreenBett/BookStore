@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookStore.Models;
+using BookStore.ViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,7 +26,15 @@ namespace BookStore.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var sl = new List<SelectListItem>();
+            var vm = new BookViewModel();
+            foreach (Author author in _context.Authors.ToList())
+            {
+                sl.Add(new SelectListItem() { Value = author.AuthorId.ToString(),
+                                              Text = String.Format("{0}, {1}", author.LastName, author.FirstName), });
+            }
+            ViewBag.SelectList = sl;
+            return View(vm);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
