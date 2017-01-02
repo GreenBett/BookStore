@@ -43,7 +43,7 @@ namespace BookStore.Controllers
         [ActionName("Delete")]
         public IActionResult Delete(int? id)
         {
-            Publisher publisher = _context.Publishers.First(o => o.PublisherId == id);
+            Publisher publisher = _context.Publishers.Find(id);
             if (publisher != null)
             {
                 return View(publisher);
@@ -54,7 +54,7 @@ namespace BookStore.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
-            Publisher publisher = _context.Publishers.First(o => o.PublisherId == id);
+            Publisher publisher = _context.Publishers.Find(id);
             _context.Publishers.Remove(publisher);
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -62,7 +62,7 @@ namespace BookStore.Controllers
 
         public IActionResult Details (int? id)
         {
-            Publisher publisher = _context.Publishers.First(o => o.PublisherId == id);
+            Publisher publisher = _context.Publishers.Find(id);
             if (publisher != null)
             {
                 return View(publisher);
@@ -72,7 +72,7 @@ namespace BookStore.Controllers
         [ActionName("Edit")]
         public IActionResult Edit (int? id)
         {
-            Publisher publisher = _context.Publishers.First(o => o.PublisherId == id);
+            Publisher publisher = _context.Publishers.Find(id);
             if (publisher != null)
             {
                 return View(publisher);
@@ -86,7 +86,7 @@ namespace BookStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                Publisher p = _context.Publishers.First(o => o.PublisherId == publisher.PublisherId);
+                Publisher p = _context.Publishers.Find(publisher.PublisherId);
                 p.Name = publisher.Name;
                 _context.SaveChanges();
                 return RedirectToAction("Index");

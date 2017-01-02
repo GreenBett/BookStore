@@ -11,7 +11,7 @@ namespace BookStore.Models
     {
         public int BookId { get; set; }
         [Required, StringLength(50, ErrorMessage = "Name cannot contain more than 50 characters.")]
-        public string Title { get; set; }
+        public string BookTitle { get; set; }
         [Required]
         public int ISBN { get; set; }
         [Required, Range(1, 2100)]

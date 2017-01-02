@@ -12,7 +12,7 @@ namespace BookStore.ViewModels
     {
         public int BookId { get; set; }
         [Required, StringLength(50, ErrorMessage = "Name cannot contain more than 50 characters.")]
-        public string Title { get; set; }
+        public string BookTitle { get; set; }
         [Required]
         public int ISBN { get; set; }
         [Required, Range(1, 2100)]
@@ -21,7 +21,6 @@ namespace BookStore.ViewModels
         [DisplayName("Price"), Required]
         public decimal UnitPrice { get; set; }
         public int AuthorId { get; set; }
-        public List<AuthorViewModel> AuthorsList { get; set; }
-        public List<Publisher> PublisherList { get; set; }
+        public int PublisherId { get; set; }
     }
 }

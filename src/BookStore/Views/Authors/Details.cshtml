@@ -4,10 +4,11 @@
     ViewBag.Title = "Details";
 }
 <a asp-action="Index"> Back to List </a>
-<h3> @Html.DisplayFor(modelItem => Model.Name) </h3>
+
 <div class="list-group">
     <div class="row">
         <div class="col-md-12 detail-div">
+            <h3> @Html.DisplayFor(modelItem => Model.Name) </h3>
             <dl>
                 <dt> AuthorId </dt>
                 <dd> @Model.AuthorId </dd>
@@ -18,7 +19,7 @@
                 <dt> Books </dt>
                 @foreach(var item in Model.Books)
                 {
-                    <dd> @Html.DisplayFor(modelItem=> item.Title) </dd>
+                    <dd> @Html.DisplayFor(modelItem=> item.BookTitle) </dd>
                 }
             </dl>
         </div>

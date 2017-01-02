@@ -1,5 +1,69 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BookStore.ViewModels.BookViewModel
+
 @{
+    ViewBag.Title = "Update Book";
 }
+
+<a asp-action="Index"> Back to list </a>
+
+<form asp-controller="Books" asp-action="Edit" class="form-horizontal" method="post" role="form">
+    <div class="form-horizontal">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="BookTitle" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @Html.TextBox("BookTitle", null, new { @class = "form-control" })
+                <span asp-validation-for="BookTitle" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ISBN" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @Html.TextBox("ISBN", null, new { @class = "form-control" })
+                <span asp-validation-for="ISBN" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PublishYear" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @Html.TextBox("PublishYear", null, new { @class = "form-control" })
+                <span asp-validation-for="PublishYear" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Quantity" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @Html.TextBox("Quantity", null, new { @class = "form-control" })
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UnitPrice" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @Html.TextBox("UnitPrice", null, new { @class = "form-control" })
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label title="AuthorsList" class="col-md-2 control-label"></label>
+            <div class="col-md-2">
+                @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.AuthorSelectList, new { @class = "form-control MakeWide" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label title="PublisherList" class="col-md-2 control-label"></label>
+            <div class="col-md-2">
+                @Html.DropDownListFor(x => x.PublisherId, (List<SelectListItem>)ViewBag.PublisherSelectList, new { @class = "form-control MakeWide" })
+            </div>
+        </div>
+        @Html.HiddenFor(modelItem => Model.AuthorId)
+        @Html.HiddenFor(modelItem => Model.PublisherId)
+        @Html.HiddenFor(modelItem => Model.BookId)
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-default" />
+                <a asp-action="Index"> Cancel </a>
+            </div>
+        </div>
+    </div>
+</form>

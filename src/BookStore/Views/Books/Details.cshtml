@@ -1,5 +1,29 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BookStore.ViewModels.BookDetailViewModel
+
 @{
+    ViewBag.Title = Model.BookTitle;
 }
+
+<a asp-action="Index"> Back to list </a>
+
+<div class="list-group">
+    <div class="col-md-12 detail-div">
+        <h3> @Model.BookTitle </h3>
+        <dl>
+            <dt> Title </dt>
+            <dd> @Model.BookTitle </dd>
+            <dt> ISBN </dt>
+            <dd> @Model.ISBN </dd>
+            <dt> Author </dt>
+            <dd> @Model.AuthorName </dd>
+            <dt> PublisherName </dt>
+            <dd> @Model.PublisherName </dd>
+            <dt> PublishYear </dt>
+            <dd> @Model.PublishYear </dd>
+            <dt> UnitPrice </dt>
+            <dd> @Model.UnitPrice </dd>
+            <dt> Quantity </dt>
+            <dd> @Model.Quantity </dd>
+        </dl>
+    </div>
+</div>

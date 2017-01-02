@@ -1,5 +1,14 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BookStore.Models.Book
+
 @{
+    ViewBag.Title = "Delete confirmation ";
 }
+
+<h3> Are you sure that you want to delete this Book? </h3>
+
+<form asp-action="Delete" method="post">
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" />
+        <a asp-action="Index"> Back to List </a>
+    </div>
+</form>
